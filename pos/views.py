@@ -4,6 +4,7 @@ from .models import Product, Customer
 from .forms import ProductForm, PaymentForm, CustomerForm, IndividualProductForm, ProductFormSet
 from django.forms import formset_factory
 from django_daraja.mpesa.core import MpesaClient
+from django.contrib import messages
 
 
 def product_list(request):
@@ -109,7 +110,7 @@ def add_customer(request):
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('product_list')
+            return redirect('pos:product_list')
     else:
         form = CustomerForm()
     return render(request, 'pos/add_customer.html', {'form': form})
