@@ -1,0 +1,18 @@
+<!-- hrms/templates/hrms/add_performance_review.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Performance Review</title>
+</head>
+<body>
+    <h2>Add Performance Review</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Review</button>
+    </form>
+    <a href="{% url 'performance_review_list' %}">Cancel</a>
+</body>
+</html>

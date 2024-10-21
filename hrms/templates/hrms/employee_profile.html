@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Employee Profile</h2>
+<p>Username: {{ employee.user.username }}</p>
+<p>Email: {{ employee.user.email }}</p>
+<p>Position: {{ employee.position }}</p>
+<p>Department: {{ employee.department }}</p>
+<p>Date of Birth: {{ employee.date_of_birth }}</p>
+<p>Date Hired: {{ employee.date_hired }}</p>
+<a href="{% url 'employee_dashboard' %}">Back to Dashboard</a>
+{% endblock %}

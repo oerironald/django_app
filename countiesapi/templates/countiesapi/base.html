@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Counties API{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .county-flag {
+            width: 30px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="mt-4">Counties List</h1>
+            <hr>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="mt-4">
+            <p>&copy; {{ current_year }} Counties API</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- hrms/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS</title>
+    <!-- Add your CSS here -->
+</head>
+<body>
+    <header>
+        <h1>HR Management System</h1>
+        <!-- Navigation links -->
+    </header>
+
+    <!-- Message display block -->
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 HR Management System</p>
+    </footer>
+</body>
+</html>

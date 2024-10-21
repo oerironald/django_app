@@ -1,0 +1,24 @@
+<!-- hrms/templates/hrms/leave_request_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Requests</title>
+</head>
+<body>
+    <h2>Leave Requests</h2>
+    <a href="{% url 'request_leave' %}">Request Leave</a>
+    <ul>
+        {% for leave_request in leave_requests %}
+            <li>
+                {{ leave_request.employee.user.username }} - {{ leave_request.leave_type }} ({{ leave_request.status }})
+                {% if leave_request.status == 'Pending' %}
+                    <a href="{% url 'approve_leave' leave_request.pk %}">Approve</a>
+                    <a href="{% url 'reject_leave' leave_request.pk %}">Reject</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

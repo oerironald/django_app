@@ -1,0 +1,26 @@
+<!-- hrms/templates/hrms/attendance_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Records</title>
+</head>
+<body>
+    <h2>Attendance Records</h2>
+    <a href="{% url 'mark_attendance' %}">Mark Attendance</a>
+    <ul>
+        <!-- hrms/templates/hrms/attendance_list.html -->
+<ul>
+    {% for record in attendance_records %}
+        <li>
+            {{ record.employee.user.username }} - {{ record.date }} - {{ record.status }}
+            {% if record.leave_request %}
+                (Leave: {{ record.leave_request.leave_type }})
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+    </ul>
+</body>
+</html>

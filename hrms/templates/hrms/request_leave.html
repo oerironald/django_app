@@ -1,0 +1,14 @@
+<!-- hrms/templates/hrms/request_leave.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Request Leave</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Leave Request</button>
+</form>
+
+<a href="{% url 'view_leave_requests' %}">Back to Leave Requests</a>
+{% endblock %}

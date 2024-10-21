@@ -1,0 +1,16 @@
+{% extends 'countiesapi/base.html' %}
+
+{% block title %}Counties{% endblock %}
+
+{% block content %}
+    <ul class="list-group">
+        {% for county in counties %}
+            <li class="list-group-item d-flex align-items-center">
+                <img src="{{ county.flagUrl }}" alt="Flag of {{ county.name }}" class="county-flag">
+                <div>
+                    <strong>{{ county.name }}</strong> (Code: {{ county.code }}) - Governor: {{ county.governor }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

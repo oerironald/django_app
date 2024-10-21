@@ -1,0 +1,31 @@
+<!-- hrms/templates/hrms/attendance_report.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Attendance Report</h2>
+
+{% if attendance_records %}
+    <table>
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Date</th>
+                <th>Check-In Time</th>
+                <th>Check-Out Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in attendance_records %}
+            <tr>
+                <td>{{ record.employee.username }}</td>
+                <td>{{ record.date }}</td>
+                <td>{{ record.check_in_time }}</td>
+                <td>{{ record.check_out_time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No attendance records found.</p>
+{% endif %}
+{% endblock %}

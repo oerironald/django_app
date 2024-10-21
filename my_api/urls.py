@@ -35,7 +35,8 @@ urlpatterns = [
     path('pos/', include('pos.urls')),
     path('', include('dashboard.urls')),
     path('bank/', include('bank.urls')),
-    
-     
+    path('hrms/', include('hrms.urls')),
+    path('mail/', include('emailapp.urls')),
+    path('counties/', include('countiesapi.urls')), 
     
 ]

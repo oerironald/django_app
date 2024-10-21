@@ -25,7 +25,7 @@ OPEN_WEATHER_API_KEY = os.getenv('OPEN_WEATHER_API_KEY')
 SECRET_KEY = 'django-insecure-@)&dtdq_y9)j@v*txgj#8%6r)^g+ae1fr=(5bk=iu_vmvw6@r6'
 
 # SECURITY WARNINGcanada/static: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True 
 
 ALLOWED_HOSTS = ['*']
 
@@ -56,6 +56,9 @@ INSTALLED_APPS = [
     'pos',
     'dashboard',
     'bank',
+    'hrms',
+    'emailapp',
+    'countiesapi',
     
     
     
@@ -177,7 +180,22 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 
+# In twilio settings
+TWILIO_ACCOUNT_SID = 'AC254e22cb02c0addf4ccb4311c12eae1e'
+TWILIO_AUTH_TOKEN = 'ae072f7139d5f592b9a82bc517a1eb93'
+TWILIO_PHONE_NUMBER = '+254725129000'
 
+# Sinch settings
+SINCH_API_KEY = 'fbf1da35-8c2c-4bc1-99ed-5256ea04a1d1'
+SINCH_API_SECRET = 'XqlScy2MxU2ve38lpzMRhXoIKn'
+SINCH_FROM_NUMBER = '+254725129000'
+SINCH_FROM_EMAIL = 'ronyjogoo@gmail.com'
+
+# Sinch settings
+SINCH_PROJECT_ID = '80627083-ba32-4aae-9082-597e3f12102c'
+SINCH_API_TOKEN = 'fbf1da35-8c2c-4bc1-99ed-5256ea04a1d1'
+SINCH_FROM_NUMBER = '+254725129000'
+SINCH_FROM_EMAIL = 'ronyjogoo@gmail.com'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -191,4 +209,25 @@ MPESA_CONSUMER_SECRET = 'UM8yA9Op0O59Yrvi'
 API_RESOURCE_URL = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
 ACCESS_TOKEN_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
 
-AUTH_USER_MODEL = 'bank.User'
+
+AUTH_USER_MODEL = 'hrms.CustomUser'
+LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = '/hrms/profile/'  # Redirect to employee profile after login
+LOGOUT_REDIRECT_URL = 'login'  # Redirect to login page after logout
+
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ronyjogoo@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'yasl uect tpwg ostm'  # Your email password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://ominous-system-wg6x6w4vjjpfgr59-8000.app.github.dev',
+    'http://localhost:8000',
+    'https://localhost:8000',
+
+]

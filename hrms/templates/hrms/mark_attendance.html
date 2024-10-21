@@ -1,0 +1,21 @@
+<!-- hrms/templates/hrms/mark_attendance.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Mark Attendance</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="id_check_in_time">Check in time:</label>
+        {{ form.check_in_time }}  <!-- Render check-in time -->
+    </div>
+    <div>
+        <label for="id_check_out_time">Check out time:</label>
+        {{ form.check_out_time }}  <!-- Render check-out time -->
+    </div>
+    <button type="submit">Mark Attendance</button>
+</form>
+
+<a href="{% url 'attendance_list' %}">Back to Attendance List</a>
+{% endblock %}

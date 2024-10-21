@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Employee Dashboard</h2>
+<p>Welcome, {{ user.username }}! You have employee access.</p>
+<ul>
+    <li><a href="{% url 'employee_profile' %}">View Profile</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+{% endblock %}

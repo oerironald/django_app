@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+    <ul>
+        <li><a href="{% url 'employee_list' %}">View Employees</a></li>
+        <li><a href="{% url 'add_employee' %}">Add Employee</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+{% else %}
+    <p>Please <a href="{% url 'custom_login' %}">login</a> to access your dashboard.</p>
+{% endif %}
+{% endblock %}

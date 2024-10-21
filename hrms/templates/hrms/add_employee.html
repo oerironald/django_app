@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Employee</h2>
+
+{% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+
+    <label for="position">Position:</label>
+    <input type="text" name="position" required>
+    
+    <label for="department">Department:</label>
+    <input type="text" name="department" required>
+    
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="date" name="date_of_birth" required>
+    
+    <label for="date_hired">Date Hired:</label>
+    <input type="date" name="date_hired" required>
+    
+    <button type="submit">Add Employee</button>
+</form>
+{% endblock %}

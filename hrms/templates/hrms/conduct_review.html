@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Conduct Performance Review</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Review</button>
+</form>
+
+<a href="{% url 'view_performance_reviews' %}">Back to Performance Reviews</a>
+{% endblock %}

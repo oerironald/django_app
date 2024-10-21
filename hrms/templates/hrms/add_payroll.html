@@ -1,0 +1,18 @@
+<!-- hrms/templates/hrms/add_payroll.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Payroll</title>
+</head>
+<body>
+    <h2>Add Payroll</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Payroll</button>
+    </form>
+    <a href="{% url 'payroll_list' %}">Cancel</a>
+</body>
+</html>
