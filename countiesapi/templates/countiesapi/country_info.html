@@ -1,0 +1,57 @@
+<!-- country_info.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Info</title>
+</head>
+<body>
+    {% if country_info %}
+        <h1>{{ country_info.country }}</h1>
+        <p><strong>Capital:</strong> {{ country_info.capital }}</p>
+        <p><strong>Currency:</strong> {{ country_info.currency }}</p>
+        <p><strong>Size:</strong> {{ country_info.size }}</p>
+        <p><strong>No of Counties:</strong> {{ country_info.no_of_counties }}</p>
+        <p><strong>Cities:</strong> {{ country_info.cities|join:", " }}</p>
+        <p><strong>Region:</strong> {{ country_info.region }}</p>
+        <p><strong>Official Languages:</strong> {{ country_info.official_languages|join:", " }}</p>
+        <p><strong>National Language:</strong> {{ country_info.national_language }}</p>
+        <p><strong>Motto:</strong> {{ country_info.motto }}</p>
+        <img src="{{ country_info.flag }}" alt="Flag of {{ country_info.country }}" style="width:200px;">
+        <p><strong>Demonym:</strong> {{ country_info.demonym }}</p>
+        <p><strong>Independence Day:</strong> {{ country_info.independence }}</p>
+        <p><strong>Population:</strong> {{ country_info.population }}</p>
+        <p><strong>Water:</strong> {{ country_info.water }}</p>
+        <p><strong>GDP:</strong> {{ country_info.GDP }}</p>
+        <p><strong>Time Zone:</strong> {{ country_info.time_zone }}</p>
+        <p><strong>Driving Side:</strong> {{ country_info.driving_side }}</p>
+        <p><strong>Calling Code:</strong> {{ country_info.caling_code }}</p>
+        <p><strong>Internet TLD:</strong> {{ country_info.internet_TLD }}</p>
+
+        <h2>Presidents</h2>
+        <ul>
+            {% for president in country_info.presidents %}
+                <li>{{ president }}</li>
+            {% endfor %}
+        </ul>
+        <img src="{{ country_info.president_image }}" alt="President Image" style="width:200px;">
+
+        <h2>Religions</h2>
+        <ul>
+            {% for religion in country_info.religions %}
+                <li>{{ religion }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Tribes</h2>
+        <ul>
+            {% for tribe in country_info.tribes %}
+                <li>{{ tribe }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No data available. Please check the API or try again later.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenya Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        img {
+            max-width: 200px;
+            height: auto;
+        }
+        .info-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background: #fff;
+        }
+        .list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .list li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ country_info.country }}</h1>
+    <div class="info-section">
+        <img src="{{ country_info.flag }}" alt="Flag of Kenya">
+        <h2>General Information</h2>
+        <p><strong>Capital:</strong> {{ country_info.capital }}</p>
+        <p><strong>Currency:</strong> {{ country_info.currency }}</p>
+        <p><strong>Size:</strong> {{ country_info.size }}</p>
+        <p><strong>Population:</strong> {{ country_info.population }}</p>
+        <p><strong>Region:</strong> {{ country_info.region }}</p>
+        <p><strong>Official Languages:</strong> {{ country_info.official_languages|join:", " }}</p>
+    </div>
+
+    <div class="info-section">
+        <h2>Key Facts</h2>
+        <ul class="list">
+            <li><strong>Motto:</strong> {{ country_info.motto }}</li>
+            <li><strong>Demonym:</strong> {{ country_info.demonym }}</li>
+            <li><strong>Independence Day:</strong> {{ country_info.independence }}</li>
+            <li><strong>Driving Side:</strong> {{ country_info.driving_side }}</li>
+            <li><strong>Calling Code:</strong> {{ country_info.calling_code }}</li>
+            <li><strong>ISO Code:</strong> {{ country_info.ISO_3166_code }}</li>
+        </ul>
+    </div>
+
+    <div class="info-section">
+        <h2>Cities</h2>
+        <ul class="list">
+            {% for city in country_info.cities %}
+                <li>{{ city }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="info-section">
+        <h2>Counties</h2>
+        <ul class="list">
+            {% for county in country_info.counties %}
+                <li>{{ county }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="info-section">
+        <h2>Presidents</h2>
+        <ul class="list">
+            {% for president in country_info.presidents %}
+                <li>{{ president }}</li>
+            {% endfor %}
+        </ul>
+        <img src="{{ country_info.president_image }}" alt="Current President" />
+    </div>
+
+    <div class="info-section">
+        <h2>Religions</h2>
+        <ul class="list">
+            {% for religion in country_info.religions %}
+                <li>{{ religion }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
